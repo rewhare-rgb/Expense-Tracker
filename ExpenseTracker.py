@@ -1,10 +1,14 @@
 weekly_budget_input = input("Enter your weekly budget (press enter to skip): ")
-monthly_budget_input = input("Enter your monthly budget (press enter to skip): ")
-
 weekly_budget = float(weekly_budget_input) if weekly_budget_input else 0
+
+monthly_budget_input = input("Enter your monthly budget (press enter to skip): ")
 monthly_budget = float(monthly_budget_input) if monthly_budget_input else 0
 
-expenses = []
+if (weekly_budget > 0) or (monthly_budget > 0):
+    expenses = []
+else:
+     print("Invalid input. Please enter a weekly/monthly budget greater than 0.")
+     exit()
 
 def add_expense():
     description = input("Enter your expense description: ")
@@ -38,7 +42,7 @@ while True:
     elif choice == "2":
         show_summary()
     elif choice == "3":
-        print("Exiting Expense Tracker")
+        print("Exiting Expense Tracker.")
         break
     else:
         print("Invalid input. Please select a valid option.")
